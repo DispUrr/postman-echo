@@ -1,27 +1,22 @@
 import org.junit.jupiter.api.Test;
 
+import static io.restassured.RestAssured.form;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class PostmanEchoTest {
 
-    class PostmanEchoTests {
         @Test
-        void shouldShowSomeData() {
-            // Given - When - Then
-// Предусловия
+        void shouldShowSomeInfo() {
             given()
                     .baseUri("https://postman-echo.com")
-                    .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
-// Выполняемые действия
+                    .body("some data")
                     .when()
                     .post("/post")
-// Проверки
                     .then()
                     .statusCode(200)
-                    .body("data", equalTo("some data"))
+                    .body("data", equalTo("Test message"))
             ;
-        }
 
     }
 
